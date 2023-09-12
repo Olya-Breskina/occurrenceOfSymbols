@@ -18,12 +18,12 @@ public class CountingSymbolsImp implements CountingSymbols {
     @Override
     public Map<Character, Integer> countingSymbols(InputString dto) {
         Pattern patlatletter = Pattern.compile("^[а-яА-ЯёЁa-zA-Z0-9]+$");
-        Matcher stringSatisfiesTheCondition = patlatletter.matcher(dto.getString());
+        Matcher stringSatisfiesTheCondition = patlatletter.matcher(dto.getInputString());
         if (!stringSatisfiesTheCondition.matches()) {
-            log.info("\n>>>>>>> проверьте строку, она не должна содержать пробелов и знаков припенания: " + dto.getString() + "<<<<<<" + "\n");
+            log.info("\n>>>>>>> проверьте строку, она не должна содержать пробелов и знаков припенания: " + dto.getInputString() + "<<<<<<" + "\n");
             throw new IllegalArgumentException("проверьте строку");
         } else {
-            String str = dto.getString();
+            String str = dto.getInputString();
             HashMap<Character, Integer> map = new HashMap<>();
             char[] ch = str.toCharArray();
             for (int i = 0; i < ch.length; i++) {
