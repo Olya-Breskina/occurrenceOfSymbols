@@ -25,7 +25,7 @@ public class CountingSymbolsImp implements CountingSymbols {
         Matcher stringSatisfiesTheCondition = patlatletter.matcher(dto.getInputString());
         if (!stringSatisfiesTheCondition.matches()) {
             log.info("\n>>>>>>> проверьте строку, она не должна содержать пробелов и знаков припенания: " + dto.getInputString() + "<<<<<<" + "\n");
-            throw new HttpMessageNotReadableException("проверьте строку");
+            throw new IllegalArgumentException("проверьте строку");
         } else {
             String str = dto.getInputString();
             HashMap<Character, Integer> map = new HashMap<>();

@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 @Slf4j
 @ControllerAdvice
 public class ServiceException {
-    @ExceptionHandler(HttpMessageNotReadableException.class)
-    public ResponseEntity<String> newException(HttpMessageNotReadableException e) {
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> newException(IllegalArgumentException e) {
         log.error(e.getMessage(), e);
         String apiError = new String("Строка не прошла валидацию. Проверьте строку, она не должна содержать пробелов и знаков припенания.");
-        return new ResponseEntity<>(apiError, HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(apiError, HttpStatus.BAD_REQUEST);
     }
 }
